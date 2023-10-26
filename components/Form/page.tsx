@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import Checkbox from "../Checkbox/page";
 import InputComponent from '../Input/page';
-import Dropdown from '../Dropdown/page';
-import { ChipVariants } from '../Chip/page';
+// import Dropdown from '../Dropdown/page';
+// import { ChipVariants } from '../Chip/page';
 
 const SatisfacaoForm = () => {
   const [rating, setRating] = useState(0);
@@ -222,9 +222,9 @@ const SatisfacaoForm = () => {
                 </div>
                 <div className='text-[14px] text-muted my-2'>
                   <p>Pergunta de multipla escolha?</p>
-                  <div>
+                  {/* <div>
                     <ChipVariants/>
-                  </div>
+                  </div> */}
 
                 </div>
               </div>
