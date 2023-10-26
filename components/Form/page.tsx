@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import Checkbox from "../Checkbox/page";
 import InputComponent from '../Input/page';
+import Dropdown from '../Dropdown/page';
+import { ChipVariants } from '../Chip/page';
 // import Dropdown from '../Dropdown/page';
 // import { ChipVariants } from '../Chip/page';
 
@@ -21,6 +23,12 @@ const SatisfacaoForm = () => {
     checkbox10:false,
     checkbox11:false,
     checkbox12:false,
+    checkbox13:false,
+    checkbox14:false,
+    checkbox15:false,
+    checkbox16:false,
+    checkbox17:false,
+    checkbox18:false,
   });
   const handleCheckboxChange = (name: string, isChecked: boolean) => {
     setCheckboxValue({
@@ -192,9 +200,9 @@ const SatisfacaoForm = () => {
                 </p>
                 <InputComponent/>
                 </div>
-                {/* <div>
+                 <div>
                   <Dropdown/>
-                </div> */}
+                </div> 
                 <div className='text-[14px] text-muted my-2 '>
                   <p>Pergunta de escolha única?</p>
                   <div className='flex gap-10 py-4 rounded-full justify-start'> 
@@ -222,10 +230,85 @@ const SatisfacaoForm = () => {
                 </div>
                 <div className='text-[14px] text-muted my-2'>
                   <p>Pergunta de multipla escolha?</p>
-                  {/* <div>
+                  <div>
                     <ChipVariants/>
-                  </div> */}
-
+                  </div>         
+                </div>
+                <div className='text-[14px] text-muted my-2  '>
+                  <p>Pergunta de multipla escolha?</p>
+                  <div className='flex flex-col gap-2 py-2 rounded-full items-start'> 
+                  <Checkbox
+                    label="OPC1"
+                    name="OPC1"
+                    isFlexRow={false}
+                    isRounded={true}
+                    isChecked={checkboxValue.checkbox13}
+                    onChange={(isChecked: any) =>
+                      handleCheckboxChange("checkbox13", isChecked)
+                    }
+                  />
+                  <Checkbox
+                    label="OPC2"
+                    name="OPC2"
+                    isFlexRow={false}
+                    isRounded={true}
+                    isChecked={checkboxValue.checkbox14}
+                    onChange={(isChecked: any) =>
+                      handleCheckboxChange("checkbox14", isChecked)
+                    }
+                  />
+                  <Checkbox
+                    label="OPC3"
+                    name="OPC3"
+                    isFlexRow={false}
+                    isRounded={true}
+                    isChecked={checkboxValue.checkbox15}
+                    onChange={(isChecked: any) =>
+                      handleCheckboxChange("checkbox15", isChecked)
+                    }
+                  />
+                   <Checkbox
+                    label="OPC4"
+                    name="OPC4"
+                    isFlexRow={false}
+                    isRounded={true}
+                    isChecked={checkboxValue.checkbox16}
+                    onChange={(isChecked: any) =>
+                      handleCheckboxChange("checkbox16", isChecked)
+                    }
+                  />
+                   <Checkbox
+                    label="OPC5"
+                    name="OPC5"
+                    isFlexRow={false}
+                    isRounded={true}
+                    isChecked={checkboxValue.checkbox17}
+                    onChange={(isChecked: any) =>
+                      handleCheckboxChange("checkbox17", isChecked)
+                    }
+                  />
+                  <Checkbox
+                    label="OPC6"
+                    name="OPC6"
+                    isFlexRow={false}
+                    isRounded={true}
+                    isChecked={checkboxValue.checkbox18}
+                    onChange={(isChecked: any) =>
+                      handleCheckboxChange("checkbox18", isChecked)
+                    }
+                  />
+                  </div>       
+                </div>
+                <div>
+                <p className="text-[14px] text-muted my-2">
+                  Pergunta de texto?
+                </p>
+                <InputComponent/>
+                </div>
+                <br/>
+                <div>
+                  <p className='text-[14px] text-muted my-2'>Pergunta de texto?</p>
+                  <InputComponent/>
                 </div>
               </div>
 
