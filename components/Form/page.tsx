@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import Checkbox from "../Checkbox/page";
 import InputComponent from '../Input/page';
-import Dropdown from '../Dropdown/page';
+
 // import { ChipVariants } from '../Chip/page';
 // import Dropdown from '../Dropdown/page';
 
@@ -200,9 +200,9 @@ const SatisfacaoForm = () => {
                 </p>
                 <InputComponent/>
                 </div>
-                 <div>
+                 {/* <div>
                   <Dropdown/>
-                </div> 
+                </div>  */}
                 <div className='text-[14px] text-muted my-2 '>
                   <p>Pergunta de escolha única?</p>
                   <div className='flex gap-10 py-4 rounded-full justify-start'> 
