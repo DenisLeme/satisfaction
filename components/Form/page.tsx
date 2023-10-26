@@ -3,9 +3,9 @@ import StarRatings from 'react-star-ratings';
 import Checkbox from "../Checkbox/page";
 import InputComponent from '../Input/page';
 import Dropdown from '../Dropdown/page';
-import { ChipVariants } from '../Chip/page';
-// import Dropdown from '../Dropdown/page';
 // import { ChipVariants } from '../Chip/page';
+// import Dropdown from '../Dropdown/page';
+
 
 const SatisfacaoForm = () => {
   const [rating, setRating] = useState(0);
@@ -228,12 +228,12 @@ const SatisfacaoForm = () => {
                   />
                   </div>       
                 </div>
-                <div className='text-[14px] text-muted my-2'>
+                {/* <div className='text-[14px] text-muted my-2'>
                   <p>Pergunta de multipla escolha?</p>
                   <div>
                     <ChipVariants/>
                   </div>         
-                </div>
+                </div> */}
                 <div className='text-[14px] text-muted my-2  '>
                   <p>Pergunta de multipla escolha?</p>
                   <div className='flex flex-col gap-2 py-2 rounded-full items-start'> 
