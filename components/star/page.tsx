@@ -35,7 +35,7 @@ const SatisfacaoForm = () => {
                 starRatedColor="gold"
                 starEmptyColor="lightgray"
                 starHoverColor="gold"
-                starDimension="60px"
+                starDimension="50px"
                 starSpacing="6px"
                 changeRating={handleRatingChange}
                 numberOfStars={5}
