@@ -15,7 +15,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+* {
+  font-family: Poppins;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -25,3 +27,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+#sortbox:checked ~ #sortboxmenu {
+    opacity: 1;
+}
+
+/* .full-width {
+  width: 100%;
+}
+
+.custom-height {
+  height: 250px;
+} */
