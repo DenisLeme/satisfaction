@@ -4,15 +4,33 @@ import Checkbox from "../Checkbox/page";
 import InputComponent from '../Input/page';
 import { ChipVariants } from '../Chip/page';
 import RadioButton from '../RadioButton/page';
+import SendButton from '../Button/page';
+import MultipleSelectPlaceholder from '../Dropdown/page';
+import { ClassNames } from '@emotion/react';
 
 // import { ChipVariants } from '../Chip/page';
 // import Dropdown from '../Dropdown/page';
 
 
 const SatisfacaoForm = () => {
-  const [rating, setRating] = useState(0);
+  // type RadioState = { [key: string]: boolean };
 
-  const[radioValue , setRadioValue] = useState({
+  const [rating, setRating] = useState(0);
+  const [radioSelect , setSelectValue] = useState({
+    radio11: false,
+    radio12: false,
+  })
+  const handleRadioSelect = (name: any, isChecked: boolean) => {
+    const updatedRadioSelect: any = { ...radioSelect }; 
+    for (const radioName in updatedRadioSelect) {
+      updatedRadioSelect[radioName] = radioName === name ? isChecked : false;
+    }
+
+    setSelectValue(updatedRadioSelect);
+  };
+
+
+  const [radioValue, setRadioValue] = useState({
     radio1: false,
     radio2: false,
     radio3: false,
@@ -23,6 +41,8 @@ const SatisfacaoForm = () => {
     radio8: false,
     radio9: false,
     radio10: false,
+    radio11: false,
+    radio12: false,
   })
 
   const [checkboxValue, setCheckboxValue] = useState({
@@ -36,18 +56,6 @@ const SatisfacaoForm = () => {
     checkbox8: false,
     checkbox9: false,
     checkbox10: false,
-    checkbox11: false,
-    checkbox12: false,
-    checkbox13: false,
-    checkbox14: false,
-    checkbox15: false,
-    checkbox16: false,
-    checkbox17: false,
-    checkbox18: false,
-    checkbox19: false,
-    checkbox20: false,
-    checkbox21: false,
-    checkbox22: false,
   });
   const handleCheckboxChange = (name: string, isChecked: boolean) => {
     setCheckboxValue({
@@ -55,33 +63,32 @@ const SatisfacaoForm = () => {
       [name]: isChecked,
     });
   };
-  const handleRadioChange = (name: string, isChecked: boolean) => {
-    setRadioValue({
-      ...radioValue,
-      [name]: isChecked,
-    });
-  };
 
+  const handleRadioChange = (name: any, isChecked: boolean) => {
+    const updatedRadioValue: any = { ...radioValue }; // Assuming radioValue is of type RadioState
+    for (const radioName in updatedRadioValue) {
+      updatedRadioValue[radioName] = radioName === name ? isChecked : false;
+    }
+
+    setRadioValue(updatedRadioValue);
+  };
   const handleRatingChange = (newRating: React.SetStateAction<number>) => {
     setRating(newRating);
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    console.log(`Avaliação: ${rating}`);
-  };
+
 
   return (
-    <section className='w-full h-screen'>
-      <div className="h-[250px] w-full flex items-center justify-center bg-slate-900">
-        <div className='w-full flex self-center justify-center'>
-          <div className='sm:max-w[80vw] md:max-w-[50vw] flex'>
-            <h1 className="text-[40px] text-white my-4 font-semibold">Pesquisa de Satisfação</h1>
-          </div>
-        </div>
+    <section className='w-full h-screen '>
+      <div className=' bg-[#19202D] flex'>
+        <div className='text-slate-600 relative m-10 '>Pesquisa de satisfação</div>
       </div>
-      <div className='w-full flex self-center justify-center'>
-        <div className='bg-white py-6 px-6 sm:max-w[80vw] md:max-w-[50vw] mt-[-96px] flex self-center rounded-[16px]'>
+      <div className="h-[250px] w-full flex items-center justify-center bg-[#19202D]">
+      </div>
+      <div className='w-full flex self-center justify-center bg-[#F2F4F8]'>
+        <div className="flex flex-col mt-[-190px]">
+        <div className="text-[40px] text-white font-semibold">Pesquisa de Satisfação</div>
+        <div className='bg-white py-6 px-6 sm:max-w[80vw] md:max-w-[60vw] flex self-center rounded-[16px]'>
           <form>
             <div className='flex flex-col whitespace-nowrap  gap-y-4'>
 
@@ -117,7 +124,7 @@ const SatisfacaoForm = () => {
                   Também é importante ter um espaço para o dono da loja colocar uma descrição
                   <br />da pergunta para ajudar o entendimento do usuário
                 </p>
-                <div className="flex gap-2 py-4 rounded-full justify-between">
+                <div className="flex gap-2 py-4 rounded-full justify-between ">
                   <RadioButton
                     label="1"
                     name="1"
@@ -126,6 +133,7 @@ const SatisfacaoForm = () => {
                     isChecked={radioValue.radio1}
                     onChange={(isChecked: any) =>
                       handleRadioChange("radio1", isChecked)
+
                     } />
                   <RadioButton
                     label="2"
@@ -216,30 +224,30 @@ const SatisfacaoForm = () => {
                   </p>
                   <InputComponent />
                 </div>
-                {/* <div>
-                  <Dropdown/>
-                </div>  */}
+                <div className='w-full'>
+                  <MultipleSelectPlaceholder />
+                </div>
                 <div className='text-[14px] text-muted my-2 '>
                   <p>Pergunta de escolha única?</p>
                   <div className='flex gap-10 py-4 rounded-full justify-start'>
-                    <Checkbox
+                    <RadioButton
                       label="Sim"
                       name="Sim"
                       isFlexRow={false}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox11}
+                      isChecked={radioSelect.radio11}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox11", isChecked)
+                        handleRadioSelect("radio11", isChecked)
                       }
                     />
-                    <Checkbox
+                    <RadioButton
                       label="Não"
                       name="Não"
                       isFlexRow={false}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox12}
+                      isChecked={radioSelect.radio12}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox12", isChecked)
+                        handleRadioSelect("radio12", isChecked)
                       }
                     />
                   </div>
@@ -258,101 +266,101 @@ const SatisfacaoForm = () => {
                     <Checkbox
                       label="OPC1"
                       name="OPC1"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox13}
+                      isChecked={checkboxValue.checkbox1}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox13", isChecked)
+                        handleCheckboxChange("checkbox1", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC2"
                       name="OPC2"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox14}
+                      isChecked={checkboxValue.checkbox2}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox14", isChecked)
+                        handleCheckboxChange("checkbox2", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC3"
                       name="OPC3"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox15}
+                      isChecked={checkboxValue.checkbox3}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox15", isChecked)
+                        handleCheckboxChange("checkbox3", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC4"
                       name="OPC4"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox16}
+                      isChecked={checkboxValue.checkbox4}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox16", isChecked)
+                        handleCheckboxChange("checkbox4", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC5"
                       name="OPC5"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox17}
+                      isChecked={checkboxValue.checkbox5}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox17", isChecked)
+                        handleCheckboxChange("checkbox5", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC6"
                       name="OPC6"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox18}
+                      isChecked={checkboxValue.checkbox6}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox18", isChecked)
+                        handleCheckboxChange("checkbox6", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC7"
                       name="OPC7"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox19}
+                      isChecked={checkboxValue.checkbox7}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox19", isChecked)
+                        handleCheckboxChange("checkbox7", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC8"
                       name="OPC8"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox20}
+                      isChecked={checkboxValue.checkbox8}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox20", isChecked)
+                        handleCheckboxChange("checkbox8", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC9"
                       name="OPC9"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox21}
+                      isChecked={checkboxValue.checkbox9}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox21", isChecked)
+                        handleCheckboxChange("checkbox9", isChecked)
                       }
                     />
                     <Checkbox
                       label="OPC10"
                       name="OPC10"
-                      isFlexRow={false}
+                      isFlexRow={true}
                       isRounded={true}
-                      isChecked={checkboxValue.checkbox22}
+                      isChecked={checkboxValue.checkbox10}
                       onChange={(isChecked: any) =>
-                        handleCheckboxChange("checkbox22", isChecked)
+                        handleCheckboxChange("checkbox10", isChecked)
                       }
                     />
                   </div>
@@ -371,7 +379,12 @@ const SatisfacaoForm = () => {
               </div>
 
             </div>
+            <br />
+            <div>
+              <SendButton />
+            </div>
           </form>
+        </div>
         </div>
       </div>
     </section>

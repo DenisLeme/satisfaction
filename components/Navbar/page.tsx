@@ -1,6 +1,6 @@
 const NavBar = () => {
   return (
-    <section className="flex justify-between bg-slate-900 w-full py-4 px-6 top-0 sticky">
+    <section className="flex justify-between bg-[#19202D] w-full py-4 px-6 top-0 sticky z-50">
       <div className="flex gap-4">
         <div className="flex self-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">

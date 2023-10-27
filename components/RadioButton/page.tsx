@@ -14,13 +14,14 @@ export default function RadioButton(props: RadioProps) {
       };
     
   return (
-    <div className={props.isFlexRow === true ? 'flex gap-2 flex-row' : 'flex gap-2 flex-col'}>
+    <div className={props.isFlexRow === true ? 'flex gap-2 flex-row ' : 'flex gap-2 flex-col'}>
       <input
         type="radio"
         name={props.name}
         checked={props.isChecked}
         onChange={handleChange}
         readOnly={props.readonly}
+        className="accent-blue-500"
       />
       <label
         className="text-sm text-slate-400 whitespace-nowrap"

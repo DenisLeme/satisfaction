@@ -21,6 +21,7 @@ export default function Checkbox(props: ItemProps) {
         checked={props.isChecked}
         onChange={handleChange}
         readOnly={props.readonly}
+        className="border-8 border-black"
       />
       <label
         className="text-sm text-slate-400 whitespace-nowrap"

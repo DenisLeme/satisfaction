@@ -11,7 +11,7 @@ interface CustomChipProps {
 const CustomChip: React.FC<CustomChipProps> = ({ value, onClick, selected }) => {
   return (
     <div className={`rounded-full p-2 cursor-pointer ${
-        selected ? "border border-slate-900" : "border border-blue-500"
+        selected ? "border border-blue-500" : "border border-slate-900" 
       }`} onClick={onClick}>
       {value}
     </div>
@@ -31,7 +31,7 @@ export function ChipVariants() {
 
   return (
     <div className="flex gap-4 h-8 rounded-md">
-        <br/>
+        
       <CustomChip
         value="OPC 1"
         selected={selectedChips.includes("OPC 1")}
