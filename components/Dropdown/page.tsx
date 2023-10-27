@@ -48,7 +48,7 @@ export default function MultipleSelectPlaceholder() {
 
   return (
     <div className="w-full">
-      <FormControl sx={{ m: 0, width: 300, mt: 3, mb: 1 }} className="w-full">
+      <FormControl sx={{ m: 0, mt: 3, mb: 1 }} className="w-full">
         <Select className="w-full"
           multiple
           displayEmpty
